@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import TasksList from "./pages/TasksList";
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/list" element={<TasksList />}></Route>
+    </Routes>
   );
 }
 
