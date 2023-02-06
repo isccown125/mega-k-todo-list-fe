@@ -1,0 +1,13 @@
+.style {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  display: flex;
+  gap: 4px;
+}
+
+.time {
+  color: #ababab;
+}

@@ -1,25 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./LinkButton.css";
 
 const LinkButton = ({
   href = "/",
   label,
   className,
+  isActive,
+  onClick,
+  children,
 }: {
   href: string;
   label: string;
   className?: string;
+  isActive: boolean;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  children: React.ReactNode;
 }) => {
   return (
-    <Link className="text-2xl" to={href}>
-      <button
-        className={`bg-opacity-0  a${
-          className ? ` ${className}` : ""
-        } text-white hover:bg-amber-200 hover:text-black`}
-      >
+    <NavLink
+      className={`${isActive ? "isActive" : ""} link-button`}
+      to={href}
+      onClick={onClick}
+    >
+      <button className={`${className ? ` ${className}` : ""} btn-style`}>
+        {children}
         {label}
       </button>
-    </Link>
+    </NavLink>
   );
 };
 

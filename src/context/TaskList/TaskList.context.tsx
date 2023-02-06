@@ -1,16 +1,18 @@
 import { createContext } from "react";
-import { task } from "../../types";
-import uuid from "react-uuid";
+import { TaskState, TaskListActions } from "../../types";
 
-const TaskListContext = createContext({
-  isSaved: false,
-  data: [] as task[],
-  saveList: () => {},
-  saveTask: ({}: task) => {},
-  createTask: (title: string): task => {
-    return { id: uuid(), title: title, isDone: false, dateAdd: new Date() };
-  },
-  modifyTask: ({}: task) => {},
+export const state: TaskState = {
+  isLoading: false,
+  task: null,
+  taskList: [],
+};
+
+const TaskListContext = createContext<{
+  taskList: TaskState;
+  distpatch: React.Dispatch<TaskListActions>;
+}>({
+  taskList: state,
+  distpatch: () => null,
 });
 
 export default TaskListContext;

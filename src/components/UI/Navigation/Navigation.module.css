@@ -1,0 +1,12 @@
+.style {
+  display: flex;
+  min-height: 30px;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

@@ -1,11 +1,16 @@
 import React from "react";
-import { MdArrowDropDown } from "react-icons/md";
+import styles from "./TaskCategoryButton.module.css";
 
-const TaskCategoryButton = ({ children }: { children?: React.ReactNode }) => {
+const TaskCategoryButton = ({
+  children,
+  onClick,
+}: {
+  children?: React.ReactNode;
+  onClick?: React.MouseEventHandler;
+}) => {
   return (
-    <button className="text-xl bg-transparent cursor-pointer flex items-center underline">
+    <button onClick={onClick} className={styles.style} title="Choose category">
       {children}
-      <MdArrowDropDown />
     </button>
   );
 };

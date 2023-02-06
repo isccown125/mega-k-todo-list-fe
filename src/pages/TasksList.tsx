@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Tasks from "../components/List/Tasks";
-import AddTask from "../components/AddTask/AddTask";
-import { ModalProvider } from "../context/Modal/Modal.context";
-import TaskListProvider from "../context/TaskList/TaskList.provider";
+import Calendar from "../components/Calendar/Calendar";
+import Banner from "../components/UI/Banner/Banner";
 
 const TasksList = () => {
   return (
     <>
-      <TaskListProvider>
-        <ModalProvider>
-          <Tasks />
-          <AddTask />
-        </ModalProvider>
-      </TaskListProvider>
+      <div>
+        <Banner />
+        <Tasks />
+      </div>
+      <Calendar />
     </>
   );
 };

@@ -1,12 +1,12 @@
 import React from "react";
+import styles from "./Banner.module.css";
 
 const Banner = () => {
   return (
-    <section
-      id="banner"
-      className="bg-green-900 from-bg-secondary to-yellow flex justify-center items-center p-2 h-1/6"
-    >
-      <h1 className="text-4xl text-white">Your ToDo list</h1>
+    <section className={styles.style}>
+      <div className={styles.content}>
+        <h1>LETS GO PLANING YOUR DAY</h1>
+      </div>
     </section>
   );
 };

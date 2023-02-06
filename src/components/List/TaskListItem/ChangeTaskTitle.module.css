@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.layer {
+  width: 100%;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5em;
+}

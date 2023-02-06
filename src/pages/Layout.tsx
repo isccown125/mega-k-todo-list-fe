@@ -1,23 +1,22 @@
 import React from "react";
 import Header from "../components/UI/Header/Header";
 import Navigation from "../components/UI/Navigation/Navigation";
-import Banner from "../components/UI/Banner/Banner";
-import Footer from "../components/UI/Footer/Footer";
 
-// interface Props{
-//     children: React.ReactNode;
-// }
+import styles from "./Layout.module.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <Header>
-        <Navigation></Navigation>
-      </Header>
-      <Banner />
-      <main className="h-full">{children}</main>
-      <Footer />
-    </>
+    <div className={styles.style}>
+      <div className={styles.wrapper}>
+        <div className={styles.content}>
+          <Header>
+            <Navigation></Navigation>
+          </Header>
+          <main className={styles["main__content"]}>{children}</main>
+          {/*<Footer />*/}
+        </div>
+      </div>
+    </div>
   );
 };
 

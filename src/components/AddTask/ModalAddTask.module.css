@@ -1,0 +1,39 @@
+.content {
+  display: flex;
+  width: 100%;
+}
+
+.main {
+  min-width: max-content;
+  width: 75%;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  max-width: 80%;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  background: #40106b;
+  min-width: min-content;
+  width: 100%;
+  max-width: 100px;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 20%;
+  padding: 0.2em;
+}
+
+.group {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 5px;
+}

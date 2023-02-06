@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,700;1,800;1,900&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
 
 body {
   margin: 0;
@@ -11,15 +21,74 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #34085b;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #643190;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-* {
-  scroll-behavior: smooth;
+input {
+  color: black;
 }
 
-#root {
-  height: 100vh;
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 1067px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    margin: 0 10px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #34085b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #643190;
+  }
+
+  ::-webkit-scrollbar-corner {
+    width: 0;
+    height: 0;
+    background: #40106b;
+  }
 }
