@@ -25,5 +25,5 @@
 }
 
 .title p {
-  word-break: keep-all;
+  word-break: break-all;
 }

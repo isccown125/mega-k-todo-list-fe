@@ -32,9 +32,13 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handleAddTask = () => {
     if (!isValid) {
+      dispatchTitle({
+        type: "INPUT_TITLE",
+        isValid: false,
+        value: title.value,
+      });
       throw new Error("Title is not valid!");
     }
-    setIsVisible(false);
     dispatchTitle({ type: "CLEAR", value: "", isValid: false });
     return { value, isValid };
   };

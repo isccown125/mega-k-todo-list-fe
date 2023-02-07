@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+.content p {
+  font-size: 15px;
+  color: #ff1f1f;
+}
+
 .layer {
   width: 100%;
 }

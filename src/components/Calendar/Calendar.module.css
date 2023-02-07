@@ -12,8 +12,18 @@
   flex-direction: column;
 }
 
+.header p {
+  text-align: center;
+  font-size: 16px;
+}
+
 .group {
   display: flex;
   width: 100%;
   gap: 5px;
+}
+
+.link {
+  color: #2b2b69;
+  cursor: pointer;
 }

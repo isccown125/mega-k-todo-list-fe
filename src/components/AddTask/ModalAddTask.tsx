@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "../UI/Modal/Modal";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import ModalContext from "../../context/Modal/Modal.context";
@@ -7,20 +7,23 @@ import styles from "./ModalAddTask.module.css";
 import { createTask } from "../../context/TaskList/TaskList.Actions";
 
 const ModalAddTask = () => {
+  const [error, setError] = useState("");
   const { titleHandleChange, onClose, taskTitle, onAddTask } =
     useContext(ModalContext);
   const { distpatch } = useContext(TaskListContext);
 
   const onClickSaveHandler = async () => {
-    const title = onAddTask().value;
-    if (!title) {
-      throw new Error("Podaj tytuł!");
+    try {
+      const title = onAddTask().value;
+      await createTask(title);
+      distpatch({
+        type: "CREATE_TASK",
+        task: { title: title },
+      });
+      onClose();
+    } catch (error) {
+      setError("Title must contain between 3 and 70 characters!");
     }
-    await createTask(title);
-    distpatch({
-      type: "CREATE_TASK",
-      task: { title: title },
-    });
   };
 
   return (
@@ -34,6 +37,11 @@ const ModalAddTask = () => {
             onChange={titleHandleChange}
             value={taskTitle}
           />
+          {error.length > 0 && (
+            <p className={styles.error}>
+              Title must contain between 3 and 70 characters!
+            </p>
+          )}
         </div>
         <div className={styles.actions}>
           <div className={styles.group}>

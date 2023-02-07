@@ -8,6 +8,11 @@
   width: 75%;
 }
 
+.error {
+  color: #ff1f1f;
+  font-size: 13px;
+}
+
 .input {
   display: flex;
   width: 100%;

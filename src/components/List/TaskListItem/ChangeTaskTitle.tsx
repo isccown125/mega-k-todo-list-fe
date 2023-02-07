@@ -16,7 +16,7 @@ const ChangeTaskTitle = ({
   onCancelEdit: (cancel: boolean) => void;
 }) => {
   const [changeTitle, setChangeTitle] = useState(taskData.title);
-
+  const [error, setError] = useState("");
   const { distpatch } = useContext(TaskListContext);
 
   const changeTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,19 +28,23 @@ const ChangeTaskTitle = ({
   };
 
   const saveChangedTitle = async () => {
-    if (changeTitle.length > 0) {
-      onCancelEdit(false);
+    try {
+      await modifyTask({
+        id: taskData.id,
+        title: changeTitle,
+        isDone: taskData.isDone,
+        dateAdd: taskData.dateAdd,
+      });
+      distpatch({
+        type: "UPDATE_TASK",
+        task: { title: changeTitle, id: taskData.id, isDone: taskData.isDone },
+      });
+      if (changeTitle.length > 0) {
+        onCancelEdit(false);
+      }
+    } catch (error) {
+      setError("Title must contain between 3 and 70 characters!");
     }
-    await modifyTask({
-      id: taskData.id,
-      title: changeTitle,
-      isDone: taskData.isDone,
-      dateAdd: taskData.dateAdd,
-    });
-    distpatch({
-      type: "UPDATE_TASK",
-      task: { title: changeTitle, id: taskData.id, isDone: taskData.isDone },
-    });
   };
 
   return (
@@ -53,6 +57,7 @@ const ChangeTaskTitle = ({
             onChange={changeTitleHandler}
             value={changeTitle}
           />
+          {error.length > 0 && <p>{error}</p>}
           <div className={styles.group}>
             <ChangeTitleButton onClick={handleCancelEditTitle}>
               Cancel
