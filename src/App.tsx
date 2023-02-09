@@ -7,8 +7,8 @@ function App() {
   console.log(process.env["API_URI"]);
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/list" element={<TasksList />}></Route>
+      <Route path="/megak-todolist/" element={<Home />}></Route>
+      <Route path="/megak-todolist/list" element={<TasksList />}></Route>
     </Routes>
   );
 }
