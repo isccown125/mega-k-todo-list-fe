@@ -1,0 +1,15 @@
+.titleWrapper {
+  font-size: clamp(0.5rem, 10vw, 1.2em);
+  font-weight: bold;
+  text-wrap: normal;
+  max-width: 300px;
+  position: relative;
+  display: flex;
+}
+
+.title {
+  max-width: 300px;
+  text-align: left;
+  word-break: break-all;
+  cursor: pointer;
+}

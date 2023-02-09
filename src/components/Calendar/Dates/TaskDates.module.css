@@ -1,0 +1,13 @@
+.select {
+  background: transparent;
+  padding: 0.5em;
+  border: #bbbbbb 2px solid;
+}
+
+.select:hover {
+  cursor: pointer;
+}
+
+.select option {
+  color: black;
+}

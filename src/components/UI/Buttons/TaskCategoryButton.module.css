@@ -1,0 +1,7 @@
+.style {
+  font-size: clamp(0.5em, 8vw, 1.3em);
+}
+
+.style:hover {
+  opacity: 0.8;
+}

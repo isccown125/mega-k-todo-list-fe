@@ -1,0 +1,35 @@
+.link-button {
+  display: flex;
+  height: 100%;
+  text-decoration: none;
+  width: clamp(10em, 15vw, 12em);
+  min-width: min-content;
+}
+
+.link-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.isActive {
+  background-color: #643190;
+}
+
+.isActive button {
+  border-color: #ff5761;
+}
+
+.btn-style {
+  display: flex;
+  color: white;
+  width: 100%;
+  border-top: 3px solid transparent;
+  font-size: clamp(0.5em, 10vw, 1.5em);
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.btn-style path {
+  color: #bbbbbb;
+}

@@ -1,0 +1,12 @@
+.style {
+  background-color: #40106b;
+  display: flex;
+  justify-content: center;
+  height: 4em;
+  min-height: 60px;
+  width: 100%;
+  position: sticky;
+  z-index: 10;
+  left: 0;
+  top: 0;
+}

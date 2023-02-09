@@ -1,0 +1,29 @@
+.style {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.time {
+  display: flex;
+  width: clamp(1em, 15vw, 2em);
+  justify-content: center;
+}
+
+.spacer {
+  display: block;
+  height: clamp(1em, 10vh, 2.5em);
+  min-width: 0.2em;
+  background: #40106b;
+}
+
+.title {
+  display: flex;
+  max-width: 150px;
+}
+
+.title p {
+  word-break: keep-all;
+}
