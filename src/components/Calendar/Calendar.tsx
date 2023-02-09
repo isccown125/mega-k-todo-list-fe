@@ -7,6 +7,7 @@ import TaskListContext from "../../context/TaskList/TaskList.context";
 import uuid from "react-uuid";
 import CalendarItems from "./CalendarItems";
 import { task } from "../../types";
+import modalContext from "../../context/Modal/Modal.context";
 
 const currentTaskListReducer = (
   state: { yearFilter: string; dateFilter: string },
@@ -34,7 +35,7 @@ const Calendar = () => {
       dateFilter: getFullDate(new Date()),
     }
   );
-
+  const { onOpen } = useContext(modalContext);
   const { taskList } = useContext(TaskListContext);
 
   const selectYearHandler = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -66,18 +67,28 @@ const Calendar = () => {
     <div className={styles.style}>
       <header className={styles.header}>
         <h1>Calendar</h1>
-
-        <div className={styles.group}>
-          <TaskYears
-            onChange={selectYearHandler}
-            currentYear={currentTaskList.yearFilter}
-          />
-          <TaskDates
-            onChange={selectDateHandler}
-            currentYear={currentTaskList.yearFilter}
-            currentDate={currentTaskList.dateFilter}
-          />
-        </div>
+        {taskList.taskList.length > 0 && (
+          <div className={styles.group}>
+            <TaskYears
+              onChange={selectYearHandler}
+              currentYear={currentTaskList.yearFilter}
+            />
+            <TaskDates
+              onChange={selectDateHandler}
+              currentYear={currentTaskList.yearFilter}
+              currentDate={currentTaskList.dateFilter}
+            />
+          </div>
+        )}
+        {taskList.taskList.length === 0 && (
+          <p>
+            Hey! You haven't planned your day? Go add task. <br />
+            {/* eslint-disable-next-line*/}
+            <a href={"#"} onClick={onOpen} className={styles.link}>
+              Add task
+            </a>
+          </p>
+        )}
       </header>
       <div>
         {taskList.taskList.map((el: task) => {

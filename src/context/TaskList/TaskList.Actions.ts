@@ -5,8 +5,8 @@ export const createTask = async (title: string) => {
     throw new Error("Title should include between 3 and 70 characters");
   }
   try {
-    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1/task/create`, {
-      method: "POST",
+    await fetch(`${process.env.REACT_APP_API_URI}/task/`, {
+      method: "PUT",
       body: JSON.stringify({ title: title }),
       headers: {
         Accept: "application/json",
@@ -20,8 +20,8 @@ export const createTask = async (title: string) => {
 
 export const modifyTask = async (taskToModify: task) => {
   try {
-    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1/task/update`, {
-      method: "POST",
+    await fetch(`${process.env.REACT_APP_API_URI}/task/`, {
+      method: "PATCH",
       body: JSON.stringify({
         id: taskToModify.id,
         title: taskToModify.title,
@@ -39,8 +39,8 @@ export const modifyTask = async (taskToModify: task) => {
 
 export const deleteTask = async (task: task) => {
   try {
-    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1//task/delete`, {
-      method: "POST",
+    await fetch(`${process.env.REACT_APP_API_URI}/task/`, {
+      method: "DELETE",
       body: JSON.stringify({
         id: task.id,
       }),
@@ -56,12 +56,9 @@ export const deleteTask = async (task: task) => {
 
 export const loadTasks = async () => {
   try {
-    const result = await fetch(
-      `https://patryk-orzech.pl/api.megak.todolist/v1/task/all`,
-      {
-        method: "GET",
-      }
-    );
+    const result = await fetch(`${process.env.REACT_APP_API_URI}/task/`, {
+      method: "GET",
+    });
     const data = await result.json();
     return data;
   } catch (error) {

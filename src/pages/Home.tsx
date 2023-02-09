@@ -1,6 +1,8 @@
 import React from "react";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const Home = () => {
+  useDocumentTitle("Todo list home");
   return (
     <div
       style={{
