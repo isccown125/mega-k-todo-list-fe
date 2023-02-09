@@ -46,7 +46,7 @@ const Navigation = () => {
     <nav className={styles.style}>
       <ul className={styles.container}>
         <NavigationItem
-          href="/megak-todolist/"
+          href="/"
           label="HOME"
           isActive={isActive.homeIsActive}
           onClick={handleClickActiveHome}
@@ -54,7 +54,7 @@ const Navigation = () => {
           <AiOutlineHome />
         </NavigationItem>
         <NavigationItem
-          href="/megak-todolist/list"
+          href="/list"
           label="TASKS"
           isActive={isActive.taskIsActive}
           onClick={handleClickActiveTasks}
