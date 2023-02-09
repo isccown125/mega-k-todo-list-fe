@@ -5,7 +5,7 @@ export const createTask = async (title: string) => {
     throw new Error("Title should include between 3 and 70 characters");
   }
   try {
-    await fetch("http://localhost:3001/task/create", {
+    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1/task/create`, {
       method: "POST",
       body: JSON.stringify({ title: title }),
       headers: {
@@ -20,7 +20,7 @@ export const createTask = async (title: string) => {
 
 export const modifyTask = async (taskToModify: task) => {
   try {
-    await fetch("http://localhost:3001/task/update", {
+    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1/task/update`, {
       method: "POST",
       body: JSON.stringify({
         id: taskToModify.id,
@@ -39,7 +39,7 @@ export const modifyTask = async (taskToModify: task) => {
 
 export const deleteTask = async (task: task) => {
   try {
-    await fetch("http://localhost:3001/task/delete", {
+    await fetch(`https://patryk-orzech.pl/api.megak.todolist/v1//task/delete`, {
       method: "POST",
       body: JSON.stringify({
         id: task.id,
@@ -56,9 +56,12 @@ export const deleteTask = async (task: task) => {
 
 export const loadTasks = async () => {
   try {
-    const result = await fetch("http://localhost:3001/task/all", {
-      method: "GET",
-    });
+    const result = await fetch(
+      `https://patryk-orzech.pl/api.megak.todolist/v1/task/all`,
+      {
+        method: "GET",
+      }
+    );
     const data = await result.json();
     return data;
   } catch (error) {

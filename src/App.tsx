@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import TasksList from "./pages/TasksList";
 
 function App() {
+  console.log(process.env["API_URI"]);
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
