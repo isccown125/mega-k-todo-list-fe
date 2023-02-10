@@ -20,3 +20,5 @@ npm start
 ## Backend
 You need install backend for corret work app 
 https://github.com/isccown125/mega-k-todo-list-be
+or you can download version without backend on branch local-storage
+
