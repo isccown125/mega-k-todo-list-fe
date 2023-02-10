@@ -5,6 +5,7 @@ App made by Patryk Orzech. This app is host on my own server:)
 ## Table of content 
 * [Technologies](#technologies) 
 * [Installation](#installation) 
+* [Backend](#backend) 
 
 ## Technologies
 React + typescript
@@ -16,3 +17,6 @@ React + typescript
 npm i
 npm start
 ```
+#Backend
+You need install backend for corret work app 
+https://github.com/isccown125/mega-k-todo-list-be
