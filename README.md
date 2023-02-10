@@ -7,7 +7,7 @@ App made by Patryk Orzech. This app is host on my own server:)
 * [Installation](#installation) 
 
 ## Technologies
-Express + Type Script
+React + typescript
 
 ## Installation
 - clone repository to your environment
