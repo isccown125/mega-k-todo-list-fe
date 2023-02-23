@@ -30,19 +30,18 @@ export const getFullTime = (
 
 export const getAllYearsFromArr = (arr: task[]) => {
   const dates = arr.map((el) => {
-    return new Date(el.dateAdd).getFullYear().toString();
+    return new Date(el.dateCreate).getFullYear().toString();
   });
   let lastEl = "";
   if (dates) {
     const newArr = dates.sort();
-    const filteredArr = newArr.filter((el: string) => {
+    return newArr.filter((el: string) => {
       if (el !== lastEl) {
         lastEl = el;
         return el;
       }
       return undefined;
     });
-    return filteredArr;
   }
 };
 
@@ -51,13 +50,13 @@ export const getAllDatesFromArr = (
   options: { byYear?: string }
 ) => {
   const dates = arr.map((el) => {
-    return getFullDate(new Date(el.dateAdd));
+    return getFullDate(new Date(el.dateCreate));
   });
 
   if (options.byYear) {
     let lastEl = "";
     const newArr = dates.sort();
-    const filteredArr = newArr.filter((el) => {
+    return newArr.filter((el) => {
       const year = new Date(el).getFullYear().toString();
       if (year === options.byYear && el !== lastEl) {
         lastEl = el;
@@ -65,18 +64,16 @@ export const getAllDatesFromArr = (
       }
       return undefined;
     });
-    return filteredArr;
   }
   if (dates) {
     let lastEl = "";
     const newArr = dates.sort();
-    const filteredArr = newArr.filter((el: string) => {
+    return newArr.filter((el: string) => {
       if (el !== lastEl) {
         lastEl = el;
         return el;
       }
       return undefined;
     });
-    return filteredArr;
   }
 };

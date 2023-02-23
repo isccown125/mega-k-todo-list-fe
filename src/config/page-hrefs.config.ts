@@ -1,4 +1,4 @@
 export enum hrefs {
-  HOME_PAGE = "/",
-  TASKS_PAGE = "/list",
+  HOME_PAGE = "/megak-todolist/",
+  TASKS_PAGE = "/megak-todolist/list",
 }

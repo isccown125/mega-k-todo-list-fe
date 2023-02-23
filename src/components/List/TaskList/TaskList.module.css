@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   min-width: 1000px;
-  width: min-content;
+  width: 100%;
 }
 
 .content {
@@ -27,8 +27,12 @@
   translate: -50%;
 }
 
-@media screen and (max-width: 1067px) {
+@media screen and (max-width: 1076px) {
   .style {
     justify-content: flex-start;
+    min-width: auto;
+  }
+
+  .content {
   }
 }
