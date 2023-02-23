@@ -18,19 +18,20 @@ const TaskListItem = ({ data }: { data: task }) => {
   const [taskIsDone, setTaskIsDone] = useState(data.isDone);
   const { distpatch } = useContext(TaskListContext);
 
-  const { id, dateAdd, title, dateModify } = data;
+  const { id, dateCreate, title, dateUpdate, isDone } = data;
   const checkboxButtonHandler = async () => {
-    setTaskIsDone(data.isDone);
     await modifyTask({
       id: id,
       isDone: !taskIsDone,
       title: title,
-      dateAdd: dateAdd,
+      dateCreate: dateCreate,
     });
+
     distpatch({
       type: "UPDATE_TASK",
       task: { id: id, isDone: taskIsDone, title: title },
     });
+    setTaskIsDone(!isDone);
   };
 
   const deleteTaskHandler = async () => {
@@ -52,8 +53,8 @@ const TaskListItem = ({ data }: { data: task }) => {
       <TaskTitle taskData={data} />
       <div className="">
         <TaskListItemDate
-          dateAdd={new Date(dateAdd)}
-          dateComplete={dateModify ? new Date(dateModify) : undefined}
+          dateAdd={new Date(dateCreate)}
+          dateComplete={dateUpdate ? new Date(dateUpdate) : undefined}
           isComplete={taskIsDone}
         ></TaskListItemDate>
         <div className={styles.action}>

@@ -1,13 +1,12 @@
 import React, { ChangeEvent, useContext, useState } from "react";
 import TaskListContext from "../../../context/TaskList/TaskList.context";
-import { task } from "../../../types/task.type";
+import { task } from "../../../types";
 import styles from "./ChangeTaskTitle.module.css";
 import ChangeTitleButton from "../../UI/Buttons/ChangeTitleButton";
 
 import { modifyTask } from "../../../context/TaskList/TaskList.Actions";
 
 const ChangeTaskTitle = ({
-  className,
   taskData,
   onCancelEdit,
 }: {
@@ -35,7 +34,7 @@ const ChangeTaskTitle = ({
       id: taskData.id,
       title: changeTitle,
       isDone: taskData.isDone,
-      dateAdd: taskData.dateAdd,
+      dateCreate: taskData.dateCreate,
     });
     distpatch({
       type: "UPDATE_TASK",

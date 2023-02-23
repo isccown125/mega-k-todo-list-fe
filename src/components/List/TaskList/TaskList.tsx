@@ -4,6 +4,9 @@ import ToDoContainer from "./TaskContainers/ToDoContainer";
 import styles from "./TaskList.module.css";
 import { loadTasks } from "../../../context/TaskList/TaskList.Actions";
 import TaskListContext from "../../../context/TaskList/TaskList.context";
+import MobileContainer from "./TaskContainers/MobileContainer";
+import { BreakpointsContext } from "../../../context/Breakpoints/Breakpoints.context";
+import TabletContainer from "./TaskContainers/TabletContainer";
 
 const filterReducer = (
   state: { toDoIsVisible: boolean; doneIsVisible: boolean },
@@ -33,7 +36,10 @@ const TaskList = ({
     toDoIsVisible: true,
     doneIsVisible: true,
   });
+
   const { distpatch, taskList } = useContext(TaskListContext);
+  const { breakpointsState } = useContext(BreakpointsContext);
+
   useEffect(() => {
     (async () => {
       distpatch({ type: "LOAD_TASK_LIST" });
@@ -52,8 +58,14 @@ const TaskList = ({
     <>
       <div className={styles.style}>
         <div className={styles.content}>
-          {filter.toDoIsVisible && <ToDoContainer />}
-          {filter.doneIsVisible && <DoneContainer />}
+          {breakpointsState.type === "MOBILE_DEVICE" && <MobileContainer />}
+          {breakpointsState.type === "TABLET_DEVICE" && <TabletContainer />}
+          {(breakpointsState.type === "DESKTOP_DEVICE" ||
+            breakpointsState.type === "LARGE_DESKTOP_DEVICE") &&
+            filter.toDoIsVisible && <ToDoContainer />}
+          {(breakpointsState.type === "DESKTOP_DEVICE" ||
+            breakpointsState.type === "LARGE_DESKTOP_DEVICE") &&
+            filter.doneIsVisible && <DoneContainer />}
         </div>
       </div>
     </>

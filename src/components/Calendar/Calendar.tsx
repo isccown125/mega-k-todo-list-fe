@@ -92,9 +92,9 @@ const Calendar = () => {
       </header>
       <div>
         {taskList.taskList.map((el: task) => {
-          const elDate = getFullDate(new Date(el.dateAdd));
-          const elYear = new Date(el.dateAdd).getFullYear().toString();
-          const time = getFullTime(new Date(el.dateAdd), {
+          const elDate = getFullDate(new Date(el.dateCreate));
+          const elYear = new Date(el.dateCreate).getFullYear().toString();
+          const time = getFullTime(new Date(el.dateCreate), {
             withSeconds: false,
           });
           if (

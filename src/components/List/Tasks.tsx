@@ -5,13 +5,14 @@ import ModalAddTask from "../AddTask/ModalAddTask";
 import ModalContext from "../../context/Modal/Modal.context";
 import styles from "./Tasks.module.css";
 import AddTaskButton from "../UI/Buttons/AddTaskButton";
+import { BreakpointsContext } from "../../context/Breakpoints/Breakpoints.context";
 
 const Tasks = () => {
   const { isVisible } = useContext(ModalContext);
   const [currentFilter, setCurrentFilter] = useState<
     "FILTER_COMPLETE" | "FILTER_PENDING" | "FILTER_ALL"
   >("FILTER_ALL");
-
+  const { breakpointsState } = useContext(BreakpointsContext);
   const handleFilter = (
     filter: "FILTER_COMPLETE" | "FILTER_PENDING" | "FILTER_ALL"
   ) => {
@@ -23,7 +24,10 @@ const Tasks = () => {
   return (
     <section id="task-list" className={styles.style}>
       <TaskList currentFilter={currentFilter} />
-      <ListActions filter={handleFilter} />
+      {(breakpointsState.type === "LARGE_DESKTOP_DEVICE" ||
+        breakpointsState.type === "DESKTOP_DEVICE") && (
+        <ListActions filter={handleFilter} />
+      )}
       {isVisible && <ModalAddTask />}
       <AddTaskButton onClick={onOpen} />
     </section>

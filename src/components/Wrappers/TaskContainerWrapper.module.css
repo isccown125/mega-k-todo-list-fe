@@ -3,3 +3,9 @@
   grid-template-columns: minmax(330px, 1fr) minmax(330px, 1fr);
   gap: 1em;
 }
+
+@media screen and (max-width: 1076px) {
+  .items {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 330px));
+  }
+}
